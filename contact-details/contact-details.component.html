@@ -1,0 +1,70 @@
+
+    <button class="btn btn-primary" (click)="goBack()">Indietro</button>
+  
+      
+      <div *ngIf="contact.id>0" class="col-12 d-flex align-items-center flex-column">
+          <div class="col-12 d-flex justify-content-center mb-4">
+            <h2 class="">{{contact.firstname | uppercase}} {{contact.lastname | uppercase}}</h2>
+          </div>
+          <div >
+            <div class="col-4">
+              <img src="{{contact.imageUrl}}" alt="foto del contatto" class="rounded-circle border border-1" width="280px"><br>
+            </div>
+            <div class="col-12 d-flex flex-column align-items-center">
+             
+              <h1>Id: {{contact.id}}</h1>
+              <h3 class="mt-3">Nome: </h3>
+              <input type="text" [(ngModel)]="contact.firstname" class="mb-2">
+              <h3 class="mt-3">Cognome: </h3>
+              <input type="text" [(ngModel)]="contact.lastname" class="mb-2">
+              <h3 class="mt-3">Email: </h3>
+              <input type="text" [(ngModel)]="contact.email" class="mb-2">
+              <h3 class="mt-3">Type: </h3>
+              <input type="text" [(ngModel)]="contact.type" class="mb-2">
+            </div>
+          </div>
+          <div class="buttonChanges mt-3">
+            
+            <button (click)="save()" class="btn btn-primary m-3 p-2">Save changes</button>
+            <button (click)="deleteUser()" class="btn btn-primary m-3 p-2">Elimina</button>
+
+          </div>
+      </div>
+   <div *ngIf="contact.id==0">
+    <div class="details mb-4">
+      <h3>Aggiungi un nuovo contatto</h3>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-3">Nome: </div>
+        <input type="text" #firstname class="col-3">
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-3">Cognome: </div>
+      <input type="text" #lastname  class="col-3">
+    </div>
+      
+    <div class="row justify-content-center mb-4">
+      <div class="col-3">Email: </div>
+      <input type="text" #email  class="col-3">
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-3">Type: </div>
+      <input type="text" #type class="col-3">
+    </div>
+    
+    <div class="row justify-content-center mb-4">
+      <div class="col-3">Url image:</div>
+      <input type="text" #imageUrl class="col-3">
+    </div>
+    
+    <div class="details m-4">
+      <button (click)="add(firstname.value, lastname.value, email.value, type.value, imageUrl.value );  " class="rounded">Add contact</button>
+    </div>
+    
+  </div>
+
+
+

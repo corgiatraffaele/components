@@ -1,0 +1,42 @@
+<div class="header">
+  
+        <div class="col-6">
+              <button  class="btn btn-primary" (click)="goBack()">Indietro</button>
+         </div>
+          
+            
+      
+  
+</div>
+    <div class="col-12 d-flex justify-content-center">
+<p class="h2">Rubrica</p>
+</div>
+<div class="border border-2 rounded p-3 mt-3 mb-3 ">
+    <p><b> Aggiungi un nuovo contatto</b></p>
+      <a routerLink="/contact/0">
+        <button  class="btn btn-primary"><i class="bi bi-person-plus"></i> Nuovo</button>
+      </a>
+  </div>
+
+<div *ngIf="contacts">
+
+  <div class="col-12 d-flex align-items-center flex-column">
+    <p class="h3"><b>Studenti</b></p>
+    <div class="col-12 d-flex align-items-center flex-column" *ngFor="let contact of contacts">
+      <div *ngIf="contact.type=='student'" class="col-12 d-flex align-items-center flex-column">
+        <app-contact-item [contact]="contact"></app-contact-item>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-12 d-flex align-items-center flex-column">
+    <p class="h3"><b>Professori</b></p>
+    <div class="col-12 d-flex align-items-center flex-column" *ngFor="let contact of contacts">
+      <div *ngIf="contact.type=='teacher'">
+        <app-contact-item [contact]="contact"></app-contact-item>
+      </div>
+    </div>
+  </div>
+
+</div>
